@@ -28,7 +28,7 @@ YaCy是一个P2P搜索引擎的开源项目，所谓P2P搜索引擎，就是会�
 
 下图是整个YaCy的freeworld网络，每台加入这个P2P索引网络的机器都在这里面（看起来是很酷）。
 
-[![yacy](http://tech.xiabb.me/wp-content/uploads/2015/11/yacy-300x266.png)](http://tech.xiabb.me/wp-content/uploads/2015/11/yacy.png)
+![yacy](/images/yacy.png)
 
 ## 部署这个系统也很简单
 
@@ -52,4 +52,4 @@ YaCy是一个P2P搜索引擎的开源项目，所谓P2P搜索引擎，就是会�
 
 如果需要更加复杂的爬虫，可以点左侧菜单中的**advanced crawler**进行设定。
 
-[![yacy2](http://tech.xiabb.me/wp-content/uploads/2015/11/yacy2-300x128.png)](http://tech.xiabb.me/wp-content/uploads/2015/11/yacy2.png)
+![yacy2](/images/yacy2.png)

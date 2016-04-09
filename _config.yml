@@ -7,7 +7,7 @@ title: 瞎BB技术
 subtitle:
 description:
 author: 瞎BB队长
-language: zh
+language: zh-Hans
 timezone: Asia/Shanghai
 
 # URL
@@ -64,7 +64,7 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: next
-
+avatar: /images/avatar.jpg
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
