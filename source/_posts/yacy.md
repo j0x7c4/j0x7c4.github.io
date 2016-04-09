@@ -38,7 +38,7 @@ YaCy是一个P2P搜索引擎的开源项目，所谓P2P搜索引擎，就是会�
 
 2.  用ant进行构建
 
-`cd yacy_search_server &amp;&amp; ant clean all`
+`cd yacy_search_server && ant clean all`
 
 3.  启动YaCy
 

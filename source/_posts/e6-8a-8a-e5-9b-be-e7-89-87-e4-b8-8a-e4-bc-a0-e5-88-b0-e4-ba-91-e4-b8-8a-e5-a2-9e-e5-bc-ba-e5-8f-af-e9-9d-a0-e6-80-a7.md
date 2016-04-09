@@ -18,8 +18,8 @@ date: 2015-11-18 16:51:45
 3.  如果一切正常，显示上传成功的提示。
 
 将之前add事件中的data.context改成:
-
-    data.context = $('&lt;button/&gt;').text('上传').addClass("btn btn-primary")
+{% codeblock lang:javascript %}
+    data.context = $('<button/>').text('上传').addClass("btn btn-primary")
     .appendTo($(".action-"+uid))
     .click(function () {
         var $this = $(this);
@@ -31,11 +31,12 @@ date: 2015-11-18 16:51:45
                 });
         data.submit();
     });
-    `</pre>
+{% endcodeblock %}
 
     当点了取消上传，或者上传失败后，会触发fail事件，再修改fail时间的函数：
 
-    <pre>`fail:function (e, data) {
+{% codeblock lang:javascript %}
+    fail:function (e, data) {
         var result = data.result;
         if (result) {
             result = JSON.parse(data.result);
@@ -52,6 +53,7 @@ date: 2015-11-18 16:51:45
             });
         });
     }
+{% endcodeblock %}
 
 如果是腾讯图片云返回的错误信息，结果存在data.result中，是一个json字符串; 而如果是其他错误，需要从.response()方法获得。这里要注意的是在重传时要重新获取一次上传的url.
 
