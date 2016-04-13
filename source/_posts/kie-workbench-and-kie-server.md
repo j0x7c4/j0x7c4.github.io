@@ -54,6 +54,17 @@ kie-server是一个独立的REST服务，主要是执行规则。
 * http://central.maven.org/maven2/org/jboss/spec/javax/security/jacc/jboss-jacc-api_1.4_spec/1.0.2.Final/jboss-jacc-api_1.4_spec-1.0.2.Final.jar
 * https://repository.jboss.org/nexus/content/repositories/thirdparty-releases/org/slf4j/slf4j-api/1.7.2.jbossorg-1/slf4j-api-1.7.2.jbossorg-1.jar
 
+## 安装kie-workbench
+
+workbench在drools的官网能下载，我用的是6.3.0-final的版本。
+
+将下载的war包放在tomcat的webapps目录下面，会自动解压（前提是tomcat正在运行）。然后会发现多了一个workbench的目录，里面有个README.txt，具体描述安装过程，其中需要的jar包在上面提供了下载链接。
+
+
+## 安装kie-server
+
+在官网下载下来的ZIP包中包含了3个war包，我用的是tomcat，所以选择了-webc的war包放在webapps目录下面。
+
 ## 使用kie-workbench和kie-server
 
 * kie-workbench: http://docs.jboss.org/drools/release/6.3.0.Final/drools-docs/html/ch18.html
