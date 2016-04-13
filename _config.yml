@@ -71,3 +71,6 @@ deploy:
   type: git
   repo: git@github.com:j0x7c4/j0x7c4.github.io.git
   branch: master
+
+baidu_analytics: 058cc2914ebd3ba5b3100e3239100385
+duoshuo_shortname: xiabb
