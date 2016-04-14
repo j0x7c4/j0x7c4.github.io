@@ -75,6 +75,9 @@ CATALINA_OPTS="-Xmx512M -XX:MaxPermSize=512m -Dbtm.root=$CATALINA_HOME \
     -Djbpm.tsr.jndi.lookup=java:comp/env/TransactionSynchronizationRegistry \
     -Djava.security.auth.login.config=$CATALINA_HOME/webapps/kie-drools-wb/WEB-INF/classes/login.config \
     -Dorg.jboss.logging.provider=jdk \
+    -Dorg.jbpm.server.ext.disabled=true \
+　　　 -Dorg.kie.server.user=tomcat \
+    -Dorg.kie.server.pwd=tomcat \
     -Dorg.kie.server.controller=http://localhost:8080/kie-drools-wb/rest/controller \
     -Dorg.kie.server.controller.user=tomcat \
     -Dorg.kie.server.controller.pwd=tomcat \
@@ -83,6 +86,8 @@ CATALINA_OPTS="-Xmx512M -XX:MaxPermSize=512m -Dbtm.root=$CATALINA_HOME \
 ```
 
 其中的org.ki.server的配置项在workbench的readme中没有提到，我在掉了很多次坑之后终于发现了这些配置项的重要性。主要是org.kie.server.controller一定配置，不然通过workbench建立的container会找不到endpoints. 用kie-server的REST　api也看不到container的信息。
+
+* org.kie.server.user/pwd: 这个是kie-server的用户名和密码，在workbench上对kie-server做交互的时候需要用户认证
 
 * org.kie.server.controller: 这个是维持kie-server配置的控制器，它的地址就是workbench路径的/rest/controller
 
@@ -103,5 +108,12 @@ CATALINA_OPTS="-Xmx512M -XX:MaxPermSize=512m -Dbtm.root=$CATALINA_HOME \
 ## 会被坑的地方
 * Tomcat如果通过bin/shutdown.sh关闭，再次重新启动时workbench会报错(previous error)无法启动。因为之前启动workbench会有一个9418的端口被占用了(git)，需要手动Kill那个进程，具体用`lsof -i:9418`查到对应的pid，然后再kill -9杀掉进程。
 
+* Workbench中的成功状态并不一定是kie-server中的成功状态，还是需要检查日志的。我一开始没有添加org.kie.server.user, 默认为kieserver，而我在Tomcat中统一配置的用户名是tomcat，结果导致我新加的项目添加到container中失败（但是workbench中是显示成功的，在kie-server的rest api中找不到该container），日志中报错说`This request requires HTTP authentication.`
+
+* kie-server中的drools有两种方式运行(BRM和BPM)，如果不在配置中把org.jbpm.server.ext.disabled设置成true，启动时会报一堆错
+
+* $TOMCAT_HOME/work里面的*.tlog文件真的是有毒。我一开始没有设置org.kie.server.user，每次workbench都是以默认的kieserver这个用户去连接kie-server导致验证出错，后来我加了org.kie.server.user和org.kie.server.pwd之后，还是报错说`org.apache.catalina.realm.LockOutRealm.authenticate An attempt was made to authenticate the locked user "kieserver"`，在检查了Ｎ遍配置，并N次重启服务后，还是不停报这个错。这时候有种直觉告诉我是不是什么地方有缓存了这个用户，于是删掉了*.tlog文件，再次重启终于成功的把我新加的项目创建到container里面了
+
 ## 有问题的地方
 * 如果workbench中建立的container,　在kie-server的REST api`/services/rest/server/containers`中看不到，应该是org.kie.server.controller没有配置正确。
+
