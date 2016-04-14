@@ -74,3 +74,10 @@ deploy:
 
 baidu_analytics: 058cc2914ebd3ba5b3100e3239100385
 duoshuo_shortname: xiabb
+
+since: 2015
+
+links_title: Links
+
+links:
+  Markdown: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
