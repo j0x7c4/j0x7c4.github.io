@@ -3,16 +3,16 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 瞎BB技术
-subtitle:
-description:
+title: 瞎BB么
+subtitle: 每个人都将自身所感知的范围当做世界的范围
+description: 记录码农的日常
 author: 瞎BB队长
-language: zh-cn
+language: en
 timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://xiabb.me
+url: http://blog.xiabb.me
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
