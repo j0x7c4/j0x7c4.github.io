@@ -7,12 +7,12 @@ title: 瞎BB技术
 subtitle:
 description:
 author: 瞎BB队长
-language: zh-Hans
+language: zh-cn
 timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://blog.xiabb.me
+url: http://xiabb.me
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -63,13 +63,13 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: next
+theme: material
 avatar: /images/avatar.jpg
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:j0x7c4/j0x7c4.github.io.git
+  repo: https://github.com/j0x7c4/j0x7c4.github.io.git
   branch: master
 
 baidu_analytics: 058cc2914ebd3ba5b3100e3239100385
